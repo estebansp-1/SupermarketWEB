@@ -1,10 +1,59 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Inicio";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4 text-uppercase fst-italic fw-bold">Bienvenido</h1>
+    <p>Se esta realizando un taller de un supermecado con relacion WEB, aqui encontraras las difentes secciones que hay en la pagina</p>
+       
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card mb-4">
+                  <div class="card-header">
+                    Categorias
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">Las diversas categorias se podran encontrar aqui</p>
+                    <a class="btn btn-primary" asp-area="" asp-page="/Categories/Index">Ir</a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card mb-4">
+                  <div class="card-header">
+                    Productos
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">Mucho de los productos estaran aca, ¡mira que hay!</p>
+                    <a class="btn btn-primary" asp-area="" asp-page="/Products/Index">Ir</a>
+                  </div>
+                </div>
+            </div>
+
+        <div class="col-12 col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    Proveedores
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Administra los proveedores desde una sola pagina</p>
+                    <a class="btn btn-primary" asp-area="" asp-page="/Providers/Index">Ir</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    Modo de pago
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Mira los pagos, consulta que tienes registrado y administra cada uno de esos datos</p>
+                    <a class="btn btn-primary" asp-area="" asp-page="/PayMode/Index">Ir</a>
+                </div>
+            </div>
+        </div>
+     </div>
 </div>
