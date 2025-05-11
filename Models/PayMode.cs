@@ -8,6 +8,5 @@
 
         public string? Observation { get; set; }
 
-        public ICollection<PayMode> PayModes { get; set; }
     }
 }

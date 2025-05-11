@@ -14,7 +14,7 @@ namespace SupermarketWEB.Models
 
         public int CategoryId { get; set; } // Clave foránea a Category
 
-        public Category Category { get; set; } // Propiedad de navegación
+        public Category? Category { get; set; } // Propiedad de navegación
     }
 
 }

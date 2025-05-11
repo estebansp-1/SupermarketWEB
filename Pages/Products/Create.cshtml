@@ -13,27 +13,27 @@
             <div asp-validation-summary="All" class="text-danger"></div>
 
             <div class="form-group mb-3">
-                <label asp-for="Products.Name" class="control-label"></label>
-                <input asp-for="Products.Name" class="form-control" required />
-                <span asp-validation-for="Products.Name" class="text-danger"></span>
+                <label asp-for="Product.Name" class="control-label"></label>
+                <input asp-for="Product.Name" class="form-control" required />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
             </div>
 
             <div class="form-group mb-3">
-                <label asp-for="Products.Price" class="control-label"></label>
-                <input asp-for="Products.Price" class="form-control" required type="number" step="0.01" min="0.01" />
-                <span asp-validation-for="Products.Price" class="text-danger"></span>
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" required type="number" step="0.01" min="0.01" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
             </div>
 
             <div class="form-group mb-3">
-                <label asp-for="Products.Stock" class="control-label"></label>
-                <input asp-for="Products.Stock" class="form-control" required type="number" min="0" />
-                <span asp-validation-for="Products.Stock" class="text-danger"></span>
+                <label asp-for="Product.Stock" class="control-label"></label>
+                <input asp-for="Product.Stock" class="form-control" required type="number" min="0" />
+                <span asp-validation-for="Product.Stock" class="text-danger"></span>
             </div>
 
             <div class="form-group mb-3">
-                <label asp-for="Products.CategoryId" class="control-label">Category</label>
-                <select asp-for="Products.CategoryId" class="form-control" asp-items="ViewBag.CategoryId" required></select>
-                <span asp-validation-for="Products.CategoryId" class="text-danger"></span>
+                <label asp-for="Product.CategoryId" class="control-label">Category</label>
+                <select asp-for="Product.CategoryId" class="form-control" asp-items="ViewBag.CategoryId" required></select>
+                <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
             </div>
 
             <div class="form-group mb-3">
