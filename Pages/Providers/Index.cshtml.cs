@@ -5,7 +5,18 @@ namespace SupermarketWEB.Pages.Providers
 {
     public class IndexModel : PageModel
     {
-        public void OnGet()
+        private readonly SupermarketContext _context;
+
+        public IndexModel(SupermarketContext context)
+        {
+            _context = context;
+        }
+
+        public IList<Models.Providers> ProvidersList { get; set; } = default!;
+
+        public async Task OnGetAsync()
+        {
+            if (_context.Providers != null)
         {
         }
     }
