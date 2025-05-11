@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SupermarketWEB.Data;
 
-namespace SupermarketWEB.Pages.PayMode
+namespace SupermarketWEB.Pages.PayModes
 {
     public class IndexModel : PageModel
     {

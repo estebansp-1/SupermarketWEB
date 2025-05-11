@@ -2,3 +2,23 @@
 @model SupermarketWEB.Pages.PayMode.CreateModel
 @{
 }
+
+<h1 class="text-uppercase fst-italic fw-bold mb-3">Create PayMode</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="PayMode.Name"></label>
+        <input asp-for="PayMode.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PayMode.Observation"></label>
+        <input asp-for="PayMode.Observation" class="form-control" />
+    </div>
+    <button type="submit">Create</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
