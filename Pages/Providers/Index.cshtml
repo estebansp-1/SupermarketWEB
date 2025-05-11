@@ -1,4 +1,70 @@
 ﻿@page
 @model SupermarketWEB.Pages.Providers.IndexModel
 @{
+    ViewData["Title"] = "Index Providers";
 }
+<h1 class="text-uppercase fw-bold fst-italic mb-3">Index Providers</h1>
+<!--Implementando estilos con bootstrap-->
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvidersList[0].Idetificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvidersList[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvidersList[0].Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvidersList[0].Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvidersList[0].cumpleanos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvidersList[0].Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvidersList[0].Email)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProvidersList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Idetificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cumpleanos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

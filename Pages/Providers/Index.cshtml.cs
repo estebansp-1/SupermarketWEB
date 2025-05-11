@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using SupermarketWEB.Data;
+using SupermarketWEB.Models;
 
 namespace SupermarketWEB.Pages.Providers
 {
@@ -17,7 +20,9 @@ namespace SupermarketWEB.Pages.Providers
         public async Task OnGetAsync()
         {
             if (_context.Providers != null)
-        {
+            {
+                ProvidersList = await _context.Providers.ToListAsync();
+            }
         }
     }
 }
