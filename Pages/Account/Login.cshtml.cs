@@ -17,26 +17,26 @@ namespace SupermarketWEB.Pages.Account
         }
 
         [BindProperty]
-        public Models.User User { get; set; }
+        public Models.User Users { get; set; }
 
         public string ErrorMessage { get; set; }
 
-        public void OnGet()
+        public async Task<IActionResult> OnPostAsync()
         {
-
-        }
-
-        public async Task<IActionResult>OnPostAnysec()
-        {
-            if(!ModelState.IsValid)
+            // Verifica que se estén recibiendo datos
+            if (string.IsNullOrEmpty(Users.Email) || string.IsNullOrEmpty(Users.Password))
             {
+                ErrorMessage = "Correo o contraseña vacíos.";
                 return Page();
             }
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == User.Email && u.Password == User.Password);
 
-        if(user == null)
+            // Valida el usuario en la BD
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == Users.Email && u.Password == Users.Password);
+
+            if (user == null)
             {
-                ErrorMessage = "Invalid email or password";
+                ErrorMessage = "Correo o contraseña inválidos.";
                 return Page();
             }
 
@@ -46,12 +46,12 @@ namespace SupermarketWEB.Pages.Account
                 new Claim(ClaimTypes.Email, user.Email)
             };
 
-            var identify = new ClaimsIdentity(claims, "MyCookieAuth");
-            ClaimsPrincipal claimsprincipal = new ClaimsPrincipal(identify);
+            var identity = new ClaimsIdentity(claims, "MyCookieAuth");
+            var principal = new ClaimsPrincipal(identity);
 
-            await HttpContext.SignInAsync("MyCookieAuth", claimsprincipal);
+            await HttpContext.SignInAsync("MyCookieAuth", principal);
 
             return Redirect("/Index");
-            }
-        }   
+        }
+    }
 }

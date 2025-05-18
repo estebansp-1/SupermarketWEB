@@ -16,7 +16,7 @@ namespace SupermarketWEB.Pages.Account
         }
 
         [BindProperty]
-        public Models.User User { get; set; }
+        public Models.User Users { get; set; }
 
         public string ErrorMessage { get; set; }
         public void OnGet()
@@ -29,14 +29,14 @@ namespace SupermarketWEB.Pages.Account
                 return Page();
             }
 
-            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == User.Email);
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == Users.Email);
             if (existingUser != null)
             {
                 ErrorMessage = "Email is already registered";
                 return Page();
             }
 
-            _context.Users.Add(User);
+            _context.Users.Add(Users);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("/Account/Login");

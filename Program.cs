@@ -17,7 +17,6 @@ namespace SupermarketWEB
             {
                 options.Cookie.Name = "MyCookieAuth";
                 options.LoginPath = "/Account/Login";
-                options.AccessDeniedPath = "/Account/Login";
             });
 
             // Add services to the container.
@@ -38,8 +37,9 @@ namespace SupermarketWEB
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            // Correct order: Authentication before Authorization
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.MapRazorPages();
 
